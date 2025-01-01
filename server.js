@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors"); 
 const app = express();
-const PORT = process.env.PORT || 3000;
 const garbageRoutes = require("./routes/router.js");
 
 const corsOptions = {
@@ -25,7 +24,7 @@ mongoose
   .connect(MONGODB_URL)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => {
+    app.listen(5000, () => {
       console.log(`Server is running`);
     });
   })
