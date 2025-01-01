@@ -2,7 +2,7 @@
 
 This API provides a set of endpoints to manage garbage records, including storing data from sensors, retrieving, updating, and deleting garbage records.
 
-Base URL: [https://ietp-ppq7.onrender.com/api/garbage](https://ietp-ppq7.onrender.com/api/garbage)
+Base URL: [https://ietp-ppq7.onrender.com/](https://ietp-ppq7.onrender.com/)
 
 ## API Endpoints
 
