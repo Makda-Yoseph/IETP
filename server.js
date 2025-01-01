@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors"); 
 const app = express();
-const garbageRoutes = require("./routes/router.js");
+const garbageRoutes = require("./routes/garbageRoute.js");
 
 const corsOptions = {
   origin: "https://ietp-yzcn.onrender.com",
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 const MONGODB_URL = process.env.MONGODB_URL;
 mongoose
-  .connect(MONGODB_URL)
+  .connect(MONGODB_URL) 
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(5000, () => {
