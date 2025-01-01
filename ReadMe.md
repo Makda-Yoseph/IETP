@@ -2,28 +2,26 @@
 
 This API provides a set of endpoints to manage garbage records, including storing data from sensors, retrieving, updating, and deleting garbage records.
 
-Base URL: [https://ietp-ppq7.onrender.com/](https://ietp-ppq7.onrender.com/)
+Base URL: [https://ietp-ppq7.onrender.com](https://ietp-ppq7.onrender.com)
 
 ## API Endpoints
 
 ### 1. Create Garbage Record (Store Data from Sensor)
-- **URL**: `https://ietp-ppq7.onrender.com/api/garbage`
+- **URL**: `https://ietp-ppq7.onrender.com/garbage`
 - **Method**: `POST`
-- **Description**: Create a new garbage record. This endpoint is used to store data collected from sensors such as temperature, humidity, or any relevant data.
+- **Description**: Create a new garbage record. This endpoint is used to store data collected from sensors such as garbage levels and location.
 - **Request Body**:
-  - `name` (string): The name of the garbage item.
-  - `quantity` (string/number): The quantity of the garbage item.
-  - `location` (string): The location where the garbage was found.
-  - `sensor_data` (object):
-    - `temperature` (number): The temperature reading from the sensor.
-    - `humidity` (number): The humidity reading from the sensor.
+  - `locationID` (string): The unique identifier for the garbage location.
+  - `level1` (number): The garbage level at sensor 1.
+  - `level2` (number): The garbage level at sensor 2.
+  - `location` (string): The location description where the garbage was found.
 
 - **Response**:
   - **Success**: HTTP Status 201 with a message and created data.
   - **Failure**: HTTP Status 400 or 500 with error message.
 
 ### 2. Get All Garbage Records
-- **URL**: `https://ietp-ppq7.onrender.com/api/garbage`
+- **URL**: `https://ietp-ppq7.onrender.com/garbage`
 - **Method**: `GET`
 - **Description**: Retrieve a list of all garbage records in the system.
 - **Response**:
@@ -31,7 +29,7 @@ Base URL: [https://ietp-ppq7.onrender.com/](https://ietp-ppq7.onrender.com/)
   - **Failure**: HTTP Status 500 with error message.
 
 ### 3. Get Garbage Record by ID
-- **URL**: `https://ietp-ppq7.onrender.com/api/garbage/:id`
+- **URL**: `https://ietp-ppq7.onrender.com/garbage/:id`
 - **Method**: `GET`
 - **Description**: Retrieve a specific garbage record by its ID.
 - **Parameters**:
@@ -41,24 +39,22 @@ Base URL: [https://ietp-ppq7.onrender.com/](https://ietp-ppq7.onrender.com/)
   - **Failure**: HTTP Status 404 if the record is not found, or HTTP Status 500 with error message.
 
 ### 4. Update Garbage Record
-- **URL**: `https://ietp-ppq7.onrender.com/api/garbage/:id`
+- **URL**: `https://ietp-ppq7.onrender.com/garbage/:id`
 - **Method**: `PUT`
 - **Description**: Update an existing garbage record by its ID.
 - **Parameters**:
   - `id` (required): The unique ID of the garbage record to update.
 - **Request Body**:
-  - `name` (string): The name of the garbage item.
-  - `quantity` (string/number): The quantity of the garbage item.
-  - `location` (string): The location where the garbage was found.
-  - `sensor_data` (object):
-    - `temperature` (number): The updated temperature reading from the sensor.
-    - `humidity` (number): The updated humidity reading from the sensor.
+  - `locationID` (string): The unique identifier for the garbage location.
+  - `level1` (number): The garbage level at sensor 1.
+  - `level2` (number): The garbage level at sensor 2.
+  - `location` (string): The location description where the garbage was found.
 - **Response**:
   - **Success**: HTTP Status 200 with the updated garbage record data.
   - **Failure**: HTTP Status 400 if invalid data is sent, HTTP Status 404 if the record is not found, or HTTP Status 500 with error message.
 
 ### 5. Delete Garbage Record
-- **URL**: `https://ietp-ppq7.onrender.com/api/garbage/:id`
+- **URL**: `https://ietp-ppq7.onrender.com/garbage/:id`
 - **Method**: `DELETE`
 - **Description**: Delete a specific garbage record by its ID.
 - **Parameters**:
