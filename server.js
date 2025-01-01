@@ -16,7 +16,11 @@ const corsOptions = {
 app.use(cors(corsOptions)); // Use CORS with the defined options
 app.use(express.json());
 app.use("/api", garbageRoutes);
-
+app.get("/", (req, res) => {
+  res.send({
+    message: "Hello from the server!",
+  });
+});
 const MONGODB_URL = process.env.MONGODB_URL;
 mongoose
   .connect(MONGODB_URL)
